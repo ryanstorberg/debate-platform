@@ -1,0 +1,2 @@
+class DebateController < ApplicationController
+end
