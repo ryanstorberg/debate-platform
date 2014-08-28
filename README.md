@@ -1,10 +1,15 @@
 == README
+###Team Oz
+- Ryan Storberg
+- Yariv Kirschner
+- Chase Blokker
+- Derek Johnson
 
-Debate Platform
-*Establish a site where a user can post a topic for debate.
-*Allow other users to vote either for or against the debate topic.
-*Users can vote on other comments.
-*Votes will be tallied for each side as a way to gauge possible progress of the debate.
+###Debate Platform
+- Establish a site where a user can post a topic for debate.
+- Allow other users to vote either for or against the debate topic.
+- Users can vote on other comments.
+- Votes will be tallied for each side as a way to gauge possible progress of the debate.
 
 
 The MIT License (MIT)
