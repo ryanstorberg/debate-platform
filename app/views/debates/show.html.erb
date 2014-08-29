@@ -1,0 +1,32 @@
+<h1><%= @debate.title %></h1>
+<p><%= @debate.body %></p>
+
+
+<div class="comment">
+  <%= form_for [@debate, Comment.new] do |f| %>
+    <%= f.hidden_field :agree?, value: true %>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content %><br>
+    <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
+  <% end %>
+
+
+  <% @agree_comments.each do |comment| %>
+    <p><%= comment.content %></p>
+  <% end %>
+</div>
+
+<div class="comment">
+  <%= form_for [@debate, Comment.new] do |f| %>
+    <%= f.hidden_field :agree?, value: false %>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content %><br>
+    <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
+  <% end %>
+
+
+  <% @disagree_comments.each do |comment| %>
+    <p><%= comment.content %></p>
+  <% end %>
+
+</div>

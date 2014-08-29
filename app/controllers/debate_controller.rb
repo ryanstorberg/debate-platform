@@ -1,2 +1,0 @@
-class DebateController < ApplicationController
-end

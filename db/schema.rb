@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20140828212442) do
     t.boolean  "agree?"
     t.text     "content"
     t.integer  "article_id"
+    t.boolean  "agree",      default: false
+    t.text     "content"
+    t.integer  "debate_id"
     t.integer  "user_id"
     t.integer  "vote_count"
     t.datetime "created_at"
