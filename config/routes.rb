@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'users#login', as: 'login'
   resources :users, only: [:index, :new, :create, :edit]
-  resources :debates
-  resources :comments
+  resources :debates do
+    resources :comments do
+      resources :votes
+    end
+  end
   root 'debates#index'
 end
