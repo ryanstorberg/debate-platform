@@ -1,2 +1,13 @@
 <h1><%= @debate.title %></h1>
 <p><%= @debate.body %></p>
+
+<%= form_for [@debate, Comment.new] do |f| %>
+  <%= f.label :content, "Content" %>
+  <%= f.text_area :content %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
+<% end %>
+
+
+<% @debate.comments.each do |comment| %>
+  <p><%= comment.content%></p>
+<% end %>
