@@ -1,0 +1,9 @@
+<%= @user.username %>'s Debates <br>
+<% @debates.each do |d| %>
+<%= link_to d.title, debate_path(d) %> <br>
+<%end %>
+
+<br><%= @user.username %>'s Comments <br>
+<% @comments.each do |c| %>
+<%= link_to c.title, comment_path(c) %> <br>
+<%end %>
