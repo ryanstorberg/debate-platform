@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  has_many :authored_debates, :foreign_key => "author_id", :class_name => "Debate"
+  has_many :authored_debates, :class_name => "Debate"
   has_many :comments
   has_many :votes
 
@@ -17,5 +17,4 @@ class User < ActiveRecord::Base
     return user if user && (user.authenticate(password))
     nil
   end
-
 end
