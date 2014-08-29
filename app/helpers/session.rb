@@ -1,3 +1,6 @@
+enable :sessions
+set :session_secret, '*&(^B234'
+
 helpers do
 
   def current_user
