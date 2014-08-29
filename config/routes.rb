@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   resources :users, only: [:index, :new, :create, :edit]
   resources :debates do
-    resources :comments
+    resources :comments do
+      resources :votes
+    end
   end
-
-   root 'debates#index'
+  root 'debates#index'
 end
