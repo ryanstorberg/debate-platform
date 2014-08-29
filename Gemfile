@@ -39,3 +39,7 @@ gem 'faker'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers'
+end

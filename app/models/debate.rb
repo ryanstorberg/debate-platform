@@ -3,4 +3,6 @@ class Debates < ActiveRecord::Base
   has_many :comments
   has_many :votes, through: :comments
   belongs_to :topic
+  validates :title, presence: true
+  validates :body, presence: true
 end
