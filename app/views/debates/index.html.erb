@@ -1,0 +1,6 @@
+<% @debates.each do |debate| %>
+  <h2><%= link_to debate.title, debate %></h2>
+  <p><%= debate.body %></p>
+  <p><b><%= debate.topic %></b></p>
+  <br>
+<% end %>
