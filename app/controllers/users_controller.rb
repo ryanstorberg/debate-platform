@@ -5,8 +5,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    p user_params
-    @user.save
+    if @user.save
+      redirect_to users_url, notice: 'New user created.'
+    else
+      render :new
+    end
   end
 
   private
