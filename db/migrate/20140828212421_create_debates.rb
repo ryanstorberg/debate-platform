@@ -6,7 +6,7 @@ class CreateDebates < ActiveRecord::Migration
       t.belongs_to :topic
       t.belongs_to :user
       t.integer :votes_for
-      t.ineger :votes_against
+      t.integer :votes_against
 
       t.timestamps
     end
