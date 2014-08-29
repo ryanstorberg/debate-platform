@@ -6,6 +6,10 @@ class DebatesController < ApplicationController
 
   def show
     @debate = Debate.find(params[:id])
+    if @debate.comments
+      @agree_comments = @debate.comments.where(agree: true)
+      @disagree_comments = @debate.comments.where(agree: false)
+    end
   end
 
   def new

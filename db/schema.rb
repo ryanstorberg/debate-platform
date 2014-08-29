@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20140828212442) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.boolean  "agree?"
+    t.boolean  "agree",      default: false
     t.text     "content"
     t.integer  "debate_id"
     t.integer  "user_id"
