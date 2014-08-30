@@ -1,7 +1,7 @@
 <%= form_for :debate, url: debates_path do |f| %>
   <%= f.label :title, "Title" %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title %><br>
   <%= f.label :body, "Body" %>
-  <%= f.text_area :body %>
+  <%= f.text_area :body %><br>
   <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
 <% end %>
