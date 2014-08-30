@@ -8,5 +8,5 @@ Rails.application.routes.draw do
       resources :votes
     end
   end
-  root 'debates#index'
+  root 'sessions#new'
 end
