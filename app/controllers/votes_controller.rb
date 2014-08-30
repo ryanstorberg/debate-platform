@@ -8,20 +8,27 @@ class VotesController < ApplicationController
   end
 
   def create
-    p "hello"
     @comment = Comment.find(params[:comment_id])
     @user = User.find(params[:vote][:user_id])
     @debate = Debate.find(params[:debate_id])
-    @vote = Vote.create(has_voted?: true, comment_id: @comment.id)
-    vote_count = @comment.vote_count.to_i + 1
+
+    @vote = Vote.create(
+      has_voted?: true,
+      comment_id: @comment.id,
+      agree: params[:vote][:agree]
+    )
+    vote_count = @comment.vote_count + 1
     @comment.update(vote_count: vote_count)
+
+    if @vote.agree
+      votes_for = @debate.votes_for + 1
+      @debate.update(votes_for: votes_for)
+    else
+      votes_against = @debate.votes_against + 1
+      @debate.update(votes_against: votes_against)
+    end
+
     redirect_to debate_path(@debate)
-    # if @comment.votes.find_by(user_id: @user.id) == nil
-    #   @vote.save
-    #   redirect_to debate_path(@debate)
-    # else
-    #     error: "You have already voted"
-    # end
   end
 
   private

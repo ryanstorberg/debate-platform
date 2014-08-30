@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20140828212442) do
     t.text     "body"
     t.integer  "topic_id"
     t.integer  "user_id"
-    t.integer  "votes_for"
-    t.integer  "votes_against"
+    t.integer  "votes_for",     default: 0
+    t.integer  "votes_against", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140828212442) do
 
   create_table "votes", force: true do |t|
     t.boolean  "has_voted?"
+    t.boolean  "agree",      default: false
     t.integer  "user_id"
     t.integer  "comment_id"
     t.datetime "created_at"
