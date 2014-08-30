@@ -5,8 +5,8 @@ class CreateDebates < ActiveRecord::Migration
       t.text :body
       t.belongs_to :topic
       t.belongs_to :user
-      t.integer :votes_for
-      t.integer :votes_against
+      t.integer :votes_for, default: 0
+      t.integer :votes_against, default: 0
 
       t.timestamps
     end
