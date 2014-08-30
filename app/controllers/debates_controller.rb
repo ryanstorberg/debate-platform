@@ -7,8 +7,8 @@ class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
     if @debate.comments
-      @agree_comments = @debate.comments.where(agree: true)
-      @disagree_comments = @debate.comments.where(agree: false)
+      @agree_comments = @debate.comments.where(agree: true).order("vote_count desc")
+      @disagree_comments = @debate.comments.where(agree: false).order("vote_count desc")
     end
   end
 
@@ -37,7 +37,7 @@ class DebatesController < ApplicationController
 
   private
   def debate_params
-    params.require(:debate).permit(:title, :body, )
+    params.require(:debate).permit(:title, :body)
   end
 
 end

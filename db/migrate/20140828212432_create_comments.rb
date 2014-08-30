@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.text :content
       t.belongs_to :debate
       t.belongs_to :user
-      t.integer :vote_count
+      t.integer :vote_count, default: 0
 
       t.timestamps
     end

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140828212442) do
     t.text     "content"
     t.integer  "debate_id"
     t.integer  "user_id"
-    t.integer  "vote_count"
+    t.integer  "vote_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
