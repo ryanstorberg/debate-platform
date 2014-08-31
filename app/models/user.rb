@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  has_many :authored_debates, :class_name => "Debate"
+  has_many :authored_debates, class_name: "Debate"
   has_many :comments
   has_many :votes
 

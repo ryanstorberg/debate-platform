@@ -1,32 +1,52 @@
 <h1><%= @debate.title %></h1>
 <p><%= @debate.body %></p>
 
-
 <div class="comment">
+  <h3>Agree</h3>
+  <p><%= @debate.votes_for %></p>
   <%= form_for [@debate, Comment.new] do |f| %>
-    <%= f.hidden_field :agree?, value: true %>
-    <%= f.label :content, "Content" %>
+    <%= f.hidden_field :agree, value: true %>
     <%= f.text_area :content %><br>
     <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
   <% end %>
 
 
   <% @agree_comments.each do |comment| %>
+    <% @commemt = comment %>
     <p><%= comment.content %></p>
+
+    <%= form_for [@debate, comment, Vote.new] do |f| %>
+      <%= f.hidden_field :user_id, value: 1 %>
+      <%= f.hidden_field :comment_id, value: comment.id %>
+      <%= f.hidden_field :agree, value: true %>
+      <%= comment.vote_count %>
+      <%= f.submit "Vote" %>
+    <% end %></p>
+
   <% end %>
 </div>
 
 <div class="comment">
+  <h3>Disagree</h3>
+  <p><%= @debate.votes_against %></p>
   <%= form_for [@debate, Comment.new] do |f| %>
     <%= f.hidden_field :agree?, value: false %>
-    <%= f.label :content, "Content" %>
     <%= f.text_area :content %><br>
     <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
   <% end %>
 
-
   <% @disagree_comments.each do |comment| %>
+    <% @commemt = comment %>
     <p><%= comment.content %></p>
+
+    <%= form_for [@debate, comment, Vote.new] do |f| %>
+      <%= f.hidden_field :user_id, value: 1 %>
+      <%= f.hidden_field :agree, value: false %>
+      <%= f.hidden_field :comment_id, value: comment.id %>
+      <%= comment.vote_count %>
+      <%= f.submit "Vote" %>
+    <% end %>
+
   <% end %>
 
 </div>
