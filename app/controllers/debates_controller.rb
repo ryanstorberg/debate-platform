@@ -14,10 +14,12 @@ class DebatesController < ApplicationController
   end
 
   def new
-    @debates = Debate.new
+    @debate = Debate.new
+    @topic = Topic.all
   end
 
   def create
+    params[:topic_id].to_i
     @debate = Debate.new(debate_params)
 
     if @debate.save
@@ -39,7 +41,7 @@ class DebatesController < ApplicationController
   private
 
   def debate_params
-    params.require(:debate).permit(:title, :body, :user_id)
+    params.require(:debate).permit(:title, :body, :user_id, :topic_id)
   end
 
 end
