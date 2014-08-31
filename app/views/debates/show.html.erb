@@ -2,8 +2,7 @@
 <p><%= @debate.body %></p>
 
 <div class="comment">
-  <h3>Agree</h3>
-  <p><%= @debate.votes_for %></p>
+  <center><h2>Agree</h2> <%= @debate.votes_for %> total votes</center>
   <%= form_for [@debate, Comment.new] do |f| %>
     <%= f.hidden_field :agree, value: true %>
     <%= f.text_area :content, placeholder: 'Why do you agree with this article?' %><br>
@@ -27,8 +26,7 @@
 </div>
 
 <div class="comment">
-  <h3>Disagree</h3>
-  <p><%= @debate.votes_against %></p>
+  <center><h2>Disagree</h2> <%= @debate.votes_against %> total votes</center>
   <%= form_for [@debate, Comment.new] do |f| %>
     <%= f.hidden_field :agree?, value: false %>
     <%= f.text_area :content, placeholder: 'Why do you disagree with this article?' %><br>
@@ -50,3 +48,4 @@
   <% end %>
 
 </div>
+

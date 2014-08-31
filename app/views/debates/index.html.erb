@@ -1,17 +1,13 @@
-<div id="recent_debates">
-  <h1>Recent Debates</h1>
-  <% @debates.each do |debate| %>
-    <h4 class="debate_title"><%= link_to debate.title, debate %></h4>
-    <p class="debate_body"><%= debate.body %></p>
-    <p><b><%= debate.topic %></b></p>
-  <% end %>
-</div>
+<% @debates.each do |debate| %>
+  <%= link_to debate do %>
+    <div class="debate-container">
+      <h2><%= debate.title %></h2>
+      <p><%= debate.body %></p>
+      <p><b><%= debate.topic %></b></p>
 
-<div id="popular_debates">
-  <h1>Popular Debates</h1>
-  <% @debates.each do |debate| %>
-    <h4 class="debate_title"><%= link_to debate.title, debate %></h4>
-    <p class="debate_body"><%= debate.body %></p>
-    <p><b><%= debate.topic %></b></p>
+      Votes for: <%= debate.votes_for %><br>
+      Votes against: <%= debate.votes_against %><br>
+      Comments: <%= debate.comments.length %>
+    </div>
   <% end %>
-</div>
+<% end %>
