@@ -6,8 +6,8 @@
   <p><%= @debate.votes_for %></p>
   <%= form_for [@debate, Comment.new] do |f| %>
     <%= f.hidden_field :agree, value: true %>
-    <%= f.text_area :content %><br>
-    <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
+    <%= f.text_area :content, placeholder: 'Why do you agree with this article?' %><br>
+    <%= f.submit "Agree", class: 'btn btn-agree'  %>
   <% end %>
 
 
@@ -31,8 +31,8 @@
   <p><%= @debate.votes_against %></p>
   <%= form_for [@debate, Comment.new] do |f| %>
     <%= f.hidden_field :agree?, value: false %>
-    <%= f.text_area :content %><br>
-    <%= f.submit "Submit", :disable_with => 'Submiting...'  %>
+    <%= f.text_area :content, placeholder: 'Why do you disagree with this article?' %><br>
+    <%= f.submit "Disagree", class: 'btn btn-disagree'  %>
   <% end %>
 
   <% @disagree_comments.each do |comment| %>

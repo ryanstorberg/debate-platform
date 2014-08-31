@@ -14,6 +14,78 @@
  *= require_self
  */
 
+body {
+  background-color: #F6F6EF;
+}
+
+textarea {
+/*  margin: 0 auto;*/
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 150px;
+  resize: none;
+  border: 1px solid #20272D;
+  padding: 5px;
+  font-size: 14px;
+}
+
+
+nav {
+  background-color: green;
+  width: 100%;
+  position: fixed;
+  font-size: 22px;
+  margin-top: -100px;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 900px;
+  height: 100%;
+  background-color: white;
+}
+
 .comment {
   float: left;
+  margin: 5px;
+  width: 400px;
 }
+
+.btn {
+  border: 1px solid rgba(0,0,0,0);
+  background-color: #20272D;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.btn.btn-agree {
+  width: 100%;
+  background-color: green;
+}
+
+.btn.btn-disagree {
+  width: 100%;
+  background-color: red;
+}
+
+.btn:hover {
+  background-color: #F6F6EF;
+  color: #20272D;
+  border: 1px solid #20272D;
+}
+
+
+
+
+
