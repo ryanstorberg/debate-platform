@@ -1,6 +1,9 @@
-<h1><%= @debate.title %></h1>
-<p><%= @debate.body %></p>
-<%= @debate.topic.name %>
+<center>
+  <h1><%= @debate.title %></h1>
+  <h4><i><%= @debate.topic.name %></i></h4>
+</center>
+
+<p align="justify"><%= @debate.body %></p>
 
 <div class="comment">
   <center>
