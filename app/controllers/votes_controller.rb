@@ -8,28 +8,34 @@ class VotesController < ApplicationController
   end
 
   def create
-    @comment = Comment.find(params[:comment_id])
     @user = User.find(params[:vote][:user_id])
     @debate = Debate.find(params[:debate_id])
+    current_user = User.find(session[:user_id]) if session[:user_id]
 
-    @vote = Vote.create(
-      has_voted?: true,
-      comment_id: @comment.id,
-      agree: params[:vote][:agree]
-    )
+    if current_user
+      @comment = Comment.find(params[:comment_id])
 
-    vote_count = @comment.vote_count + 1
-    @comment.update(vote_count: vote_count)
+      @vote = Vote.create(
+        has_voted?: true,
+        comment_id: @comment.id,
+        agree: params[:vote][:agree]
+      )
 
-    total_votes = @debate.total_votes + 1
-    @debate.update(total_votes: total_votes)
+      vote_count = @comment.vote_count + 1
+      @comment.update(vote_count: vote_count)
 
-    if @vote.agree
-      votes_for = @debate.votes_for + 1
-      @debate.update(votes_for: votes_for)
+      total_votes = @debate.total_votes + 1
+      @debate.update(total_votes: total_votes)
+
+      if @vote.agree
+        votes_for = @debate.votes_for + 1
+        @debate.update(votes_for: votes_for)
+      else
+        votes_against = @debate.votes_against + 1
+        @debate.update(votes_against: votes_against)
+      end
     else
-      votes_against = @debate.votes_against + 1
-      @debate.update(votes_against: votes_against)
+      flash[:notice] = "Must be logged in to write a comment"
     end
     # respond_to do |format|
     #   format.js { render :updateVote }
