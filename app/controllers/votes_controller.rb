@@ -17,8 +17,12 @@ class VotesController < ApplicationController
       comment_id: @comment.id,
       agree: params[:vote][:agree]
     )
+
     vote_count = @comment.vote_count + 1
     @comment.update(vote_count: vote_count)
+
+    total_votes = @debate.total_votes + 1
+    @debate.update(total_votes: total_votes)
 
     if @vote.agree
       votes_for = @debate.votes_for + 1
