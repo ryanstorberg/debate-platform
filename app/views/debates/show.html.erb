@@ -2,50 +2,63 @@
 <p><%= @debate.body %></p>
 
 <div class="comment">
-  <center><h2>Agree</h2> <%= @debate.votes_for %> total votes</center>
-  <%= form_for [@debate, Comment.new] do |f| %>
-    <%= f.hidden_field :agree, value: true %>
-    <%= f.text_area :content, placeholder: 'Why do you agree with this article?' %><br>
-    <%= f.submit "Agree", class: 'btn btn-agree'  %>
-  <% end %>
+  <center>
+    <h2>Agree</h2>
+    <%= @debate.votes_for %> total votes
+  </center>
 
+  <%= render partial: 'comment_form',
+      locals: {
+        debate: @debate,
+        placeholder: "Why do you agree with this article?",
+        button_text: "Agree",
+        button_class: "btn btn-agree"
+      }
+    %>
 
   <% @agree_comments.each do |comment| %>
     <div class="single_debate">
-      <% @commemt = comment %>
-        <p><%= comment.content %></p>
+      <p><%= comment.content %></p>
 
-        <%= form_for [@debate, comment, Vote.new] do |f| %>
-          <%= f.hidden_field :user_id, value: 1 %>
-          <%= f.hidden_field :comment_id, value: comment.id %>
-          <%= f.hidden_field :agree, value: true %>
-          <%= f.submit comment.vote_count.to_s + " votes", {class: 'btn'} %>
-      <% end %></p>
+      <%= render partial: 'vote_form',
+        locals: {
+          comment: comment,
+          debate: @debate,
+          agree: true
+        }
+      %>
     </div>
   <% end %>
+
 </div>
 
 <div class="comment">
-  <center><h2>Disagree</h2> <%= @debate.votes_against %> total votes</center>
-  <%= form_for [@debate, Comment.new] do |f| %>
-    <%= f.hidden_field :agree?, value: false %>
-    <%= f.text_area :content, placeholder: 'Why do you disagree with this article?' %><br>
-    <%= f.submit "Disagree", class: 'btn btn-disagree'  %>
-  <% end %>
+  <center>
+    <h2>Disagree</h2>
+    <%= @debate.votes_against %> total votes
+  </center>
+
+  <%= render partial: 'comment_form',
+      locals: {
+        debate: @debate,
+        placeholder: "Why do you disagree with this article?",
+        button_text: "Disagree",
+        button_class: "btn btn-disagree"
+      }
+    %>
 
   <% @disagree_comments.each do |comment| %>
     <div class="single_debate">
-      <% @commemt = comment %>
       <p><%= comment.content %></p>
 
-      <%= form_for [@debate, comment, Vote.new] do |f| %>
-        <%= f.hidden_field :user_id, value: 1 %>
-        <%= f.hidden_field :agree, value: false %>
-        <%= f.hidden_field :comment_id, value: comment.id %>
-        <%= f.submit comment.vote_count.to_s + " votes", {class: 'btn'} %>
-      <% end %>
+      <%= render partial: 'vote_form',
+        locals: {
+          comment: comment,
+          debate: @debate,
+          agree: true
+        }
+      %>
     </div>
   <% end %>
-
 </div>
 

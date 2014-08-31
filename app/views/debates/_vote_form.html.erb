@@ -1,0 +1,6 @@
+<%= form_for [@debate, comment, Vote.new] do |f| %>
+  <%= f.hidden_field :user_id, value: 1 %>
+  <%= f.hidden_field :comment_id, value: comment.id %>
+  <%= f.hidden_field :agree, value: agree %>
+  <%= f.submit comment.vote_count.to_s + " votes", {class: 'btn'} %>
+<% end %>
