@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140828212442) do
     t.integer  "user_id"
     t.integer  "votes_for",     default: 0
     t.integer  "votes_against", default: 0
+    t.integer  "total_votes",   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
