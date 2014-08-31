@@ -15,8 +15,71 @@
  */
 
 body {
-  background-color: lightgray;
+  background-color: #fff;
 }
+
+nav {
+  width: 900px;
+  position: fixed;
+  font-size: 22px;
+  margin-top: -100px;
+}
+
+nav .session_panel {
+  display: inline-block;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 900px;
+  background-color: #eee;
+  padding: 30px;
+}
+
+#debate_container {
+  font-family: "New Time Roman"
+  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  color: black;
+  -webkit-box-shadow: 0 0 11px 1px #111;
+}
+
+.single_debate {
+  margin-bottom: 15px;
+}
+
+  #debate_container h5 {
+    margin: 0;
+  }
+
+  #debate_container p {
+    margin: 0;
+  }
+
+  #debate_container a {
+    text-decoration: none;
+    color: black;
+  }
+
+  #debate_container a:hover {
+    text-decoration: none;
+    color: #888;
+  }
+
+  #recent_list {
+    float: left;
+    width: 350px;
+    margin: 10px;
+  }
+
+  #popular_list {
+    float:left;
+    width: 350px;
+    margin: 10px;
+  }
 
 a {
   text-decoration: none;
@@ -32,37 +95,6 @@ textarea {
   border: 1px solid #20272D;
   padding: 10px;
   font-size: 14px;
-}
-
-nav {
-  width: 100%;
-  position: fixed;
-  font-size: 22px;
-  margin-top: -100px;
-}
-
-.container {
-  margin: 0 auto;
-  margin-top: 100px;
-  padding: 15px;
-  border-radius: 10px;
-  width: 900px;
-  background-color: white;
-  padding: 30px;
-}
-
-.debate-container {
-  font-family: "Georgia"
-  margin: 0 auto;
-  margin-top: 10px;
-  height: 100%;
-  padding: 20px 20px 20px 20px;
-  background-color: #F6F6EF;
-  -webkit-box-shadow: 0 0 11px 1px #111;
-}
-
-.debate-container:hover {
-  background-color: orange;
 }
 
 .debate_title {
