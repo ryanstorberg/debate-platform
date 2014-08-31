@@ -10,21 +10,21 @@
 
   <nav>
     <% if current_user %>
-      <%= link_to 'Home', debates_path %> |
-      <%= link_to 'Create Debate', new_debate_path %> |
+      <%= link_to 'Home', debates_path, {class: 'btn'} %>
+      <%= link_to 'Create Debate', new_debate_path, {class: 'btn'} %>
       <div class="session_panel">
-        Welcome, <%= link_to current_user.username, user_path(current_user) %>! |
+        Welcome, <%= link_to current_user.username, user_path(current_user) %>!
         <%= link_to 'Logout', logout_path %><br>
       </div>
     <% else %>
-      <%= link_to 'Home', debates_path %> |
+      <%= link_to 'Home', debates_path, {class: 'btn'} %>
       <div class="session_panel">
-        <%= link_to 'Login', login_path %> |
-        <%= link_to 'Sign up', new_user_path %><br>
+        <%= link_to 'Login', login_path, {class: 'btn'} %>
+        <%= link_to 'Sign up', new_user_path, {class: 'btn'} %><br>
       </div>
     <% end %>
   </nav>
-  
+
   <div class="container">
     <%= yield %>
   </div>

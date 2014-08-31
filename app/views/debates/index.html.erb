@@ -8,12 +8,14 @@
 <div id="debate_container">
 
   <div id="recent_list">
-    <h2>Recent Debates</h2>
+    <center><h1>Recent Debates</h1></center>
     <% @recent_debates.each do |debate| %>
-      <div class="single_debate">
-        <%= link_to debate do %>
-          <h4><%= debate.title %></h4>
-          <p><%= debate.body %></p>
+      <%= link_to debate do %>
+        <div class="single_debate">
+          <h3><%= debate.title %></h3>
+          <p class="truncate"><%= debate.body %></p>
+          <br>
+
 
           <p>
             <b><%= debate.topic.name %></b> |
@@ -21,18 +23,19 @@
             <%= debate.votes_against %> Against |
             <%= debate.comments.length %> Comments
           </p>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div id="popular_list">
-    <h2>Popular Debates</h2>
+    <center><h1>Popular Debates</h1></center>
     <% @popular_debates.each do |debate| %>
-      <div class="single_debate">
-        <%= link_to debate do %>
-          <h4><%= debate.title %></h4>
-          <p><%= debate.body %></p>
+      <%= link_to debate do %>
+        <div class="single_debate">
+          <h3><%= debate.title %></h3>
+          <p class="truncate"><%= debate.body %></p>
+          <br>
 
           <p>
             <b><%= debate.topic.name %></b> |
@@ -40,8 +43,9 @@
             <%= debate.votes_against %> Against |
             <%= debate.comments.length %> Comments
           </p>
-        <% end %>
-      </div>
+          <br>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
