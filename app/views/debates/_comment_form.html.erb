@@ -1,0 +1,5 @@
+<%= form_for [@debate, Comment.new] do |f| %>
+  <%= f.hidden_field :agree?, value: false %>
+  <%= f.text_area :content, placeholder: placeholder %><br>
+  <%= f.submit button_text, class: button_class  %>
+<% end %>

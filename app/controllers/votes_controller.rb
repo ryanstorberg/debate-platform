@@ -31,8 +31,11 @@ class VotesController < ApplicationController
       votes_against = @debate.votes_against + 1
       @debate.update(votes_against: votes_against)
     end
+    respond_to do |format|
+      format.js { render :updateVote }
+    end
 
-    redirect_to debate_path(@debate)
+    # redirect_to debate_path(@debate)
   end
 
   private
