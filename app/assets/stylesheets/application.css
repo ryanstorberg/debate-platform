@@ -15,8 +15,80 @@
  */
 
 body {
-  background-color: #F6F6EF;
+  background-color: #fff;
 }
+
+nav {
+  width: 75%;
+  position: fixed;
+  left: 50%;
+  margin: 0 0 0 -37.5%;
+  top: 0;
+  background-color: white;
+}
+
+nav .session_panel {
+  display: inline-block;
+}
+
+.container {
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 15px;
+  /*border-radius: 10px;*/
+  width: 900px;
+  /*background-color: #eee;*/
+  padding: 30px;
+}
+
+#debate_container {
+  font-family: "New Time Roman"
+  margin: 0 auto;
+  padding: 20px 20px 20px 20px;
+  background-color: #eee;
+  color: black;
+  -webkit-box-shadow: 0 0 11px 1px #111;
+}
+
+.single_debate {
+  margin-bottom: 15px;
+}
+
+  #debate_container h4 {
+    margin: 0;
+  }
+
+  #debate_container p {
+    margin: 0;
+  }
+
+  #debate_container a {
+    text-decoration: none;
+    color: black;
+  }
+
+  #debate_container a:hover {
+    text-decoration: none;
+    color: #888;
+  }
+
+  #recent_list {
+    display: inline-block;
+    /*float: left;*/
+    width: 350px;
+    margin: 10px 10px 10px 35px;
+    position: relative;
+  }
+
+  #popular_list {
+    display: inline-block;
+    /*float:left;*/
+    width: 350px;
+    margin: 10px 10px 10px 25px;
+    border-left: 1px solid black;
+    padding-left: 40px;
+    position: relative;
+  }
 
 a {
   text-decoration: none;
@@ -34,36 +106,17 @@ textarea {
   font-size: 14px;
 }
 
-nav {
-  background-color: green;
-  width: 100%;
-  position: fixed;
-  font-size: 22px;
-  margin-top: -100px;
+.debate_title {
+  margin: 0;
 }
 
-.container {
-  margin: 0 auto;
-  margin-top: 100px;
-  width: 900px;
-  height: 100%;
-  background-color: white;
-  padding: 30px;
-}
+  .debate_title a {
+    text-decoration: none;
+  }
 
-.debate-container {
-  margin: 0 auto;
-  margin-top: 10px;
-  height: 100%;
-  padding: 20px 20px 20px 20px;
-  background-color: #F6F6EF;
-  -webkit-box-shadow: 0 0 11px 1px #111;
+.debate_body {
+  margin: 0;
 }
-
-.debate-container:hover {
-  background-color: orange;
-}
-
 
 .comment {
   float: left;
@@ -103,8 +156,3 @@ nav {
   color: #20272D;
   border: 1px solid #20272D;
 }
-
-
-
-
-
