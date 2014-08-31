@@ -15,7 +15,7 @@
  */
 
 body {
-  background-color: #F6F6EF;
+  background-color: lightgray;
 }
 
 a {
@@ -52,6 +52,7 @@ nav {
 }
 
 .debate-container {
+  font-family: "Georgia"
   margin: 0 auto;
   margin-top: 10px;
   height: 100%;
