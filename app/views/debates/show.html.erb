@@ -11,17 +11,17 @@
 
 
   <% @agree_comments.each do |comment| %>
-    <% @commemt = comment %>
-    <p><%= comment.content %></p>
+    <div class="single_debate">
+      <% @commemt = comment %>
+        <p><%= comment.content %></p>
 
-    <%= form_for [@debate, comment, Vote.new] do |f| %>
-      <%= f.hidden_field :user_id, value: 1 %>
-      <%= f.hidden_field :comment_id, value: comment.id %>
-      <%= f.hidden_field :agree, value: true %>
-      <%= comment.vote_count %>
-      <%= f.submit "Vote" %>
-    <% end %></p>
-
+        <%= form_for [@debate, comment, Vote.new] do |f| %>
+          <%= f.hidden_field :user_id, value: 1 %>
+          <%= f.hidden_field :comment_id, value: comment.id %>
+          <%= f.hidden_field :agree, value: true %>
+          <%= f.submit comment.vote_count.to_s + " votes", {class: 'btn'} %>
+      <% end %></p>
+    </div>
   <% end %>
 </div>
 
@@ -34,17 +34,17 @@
   <% end %>
 
   <% @disagree_comments.each do |comment| %>
-    <% @commemt = comment %>
-    <p><%= comment.content %></p>
+    <div class="single_debate">
+      <% @commemt = comment %>
+      <p><%= comment.content %></p>
 
-    <%= form_for [@debate, comment, Vote.new] do |f| %>
-      <%= f.hidden_field :user_id, value: 1 %>
-      <%= f.hidden_field :agree, value: false %>
-      <%= f.hidden_field :comment_id, value: comment.id %>
-      <%= comment.vote_count %>
-      <%= f.submit "Vote" %>
-    <% end %>
-
+      <%= form_for [@debate, comment, Vote.new] do |f| %>
+        <%= f.hidden_field :user_id, value: 1 %>
+        <%= f.hidden_field :agree, value: false %>
+        <%= f.hidden_field :comment_id, value: comment.id %>
+        <%= f.submit comment.vote_count.to_s + " votes", {class: 'btn'} %>
+      <% end %>
+    </div>
   <% end %>
 
 </div>
