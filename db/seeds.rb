@@ -1,29 +1,22 @@
 require 'faker'
 
 10.times do
-  User.create(username: Faker::Lorem.word, email: Faker::Internet.email, password: "password")
-  Debate.create(title: Faker::Company.catch_phrase, body: Faker::Lorem.paragraph, user_id: 2)
+  User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: Faker::Internet.password)
 end
 
-User.create(username: "bmpasini", email: "bruno@email.com", password: "password")
+10.times do
+  Topic.create(name: Faker::Lorem.word)
+end
 
-Comment.create(content: Faker::Company.catch_phrase, debate: Debate.first, user: User.first, agree: true, vote_count: 1)
+20.times do
+  Debate.create(title: Faker::Company.catch_phrase, body: Faker::Lorem.paragraph, topic_id: rand(1..10), user_id: rand(1..10), votes_for: rand(1..50), votes_against: rand(1..50))
+end
 
-Comment.create(content: Faker::Company.catch_phrase, debate: Debate.first, user: User.first, vote_count: 2)
+200.times do
+  Comment.create(user_id: rand(1..10), debate_id: rand(1..10), content: Faker::Lorem.paragraph, agree: [true, false].sample, vote_count: rand(1..100))
+end
 
 5.times do
-  Vote.create(has_voted?: true, user: User.first, comment: Comment.first)
+  Vote.create(has_voted?: [true, false].sample, user_id: rand(1..10), comment_id: rand(1..200))
  end
-
-User.all.each do |u|
-  Debate.create(user_id: u.id, title: Faker::Company.catch_phrase, body: Faker::Lorem.paragraph)
-end
-
-Debate.all.each do |d|
-  rand(2..6).times do
-    User.all.each do |u|
-      Comment.create(debate_id: d.id, user_id: u.id, content: Faker::Lorem.sentence)
-    end
-  end
-end
 

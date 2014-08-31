@@ -74,20 +74,17 @@ nav .session_panel {
 
   #recent_list {
     display: inline-block;
-    /*float: left;*/
     width: 350px;
     margin: 10px 10px 10px 35px;
-    position: relative;
+    float: left;
   }
 
   #popular_list {
     display: inline-block;
-    /*float:left;*/
     width: 350px;
     margin: 10px 10px 10px 25px;
     border-left: 1px solid black;
     padding-left: 40px;
-    position: relative;
   }
 
 a {
