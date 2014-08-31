@@ -136,6 +136,10 @@ textarea {
   width: 400px;
 }
 
+input {
+  padding: 20px;
+  font-size: 22px;
+}
 
 .btn {
   border: 1px solid rgba(0,0,0,0);

@@ -3,7 +3,7 @@
     <%= f.text_field :username, placeholder: "Username"%><br>
     <%= f.text_field :email, placeholder: "Email"%><br>
     <%= f.password_field :password, placeholder: "Password"%><br>
-    <%= f.submit :Signup %>
+    <%= f.submit :Signup, {class: 'btn'} %>
   <% end %>
   <% if @user.errors.any? %>
     <ul class="Signup_Errors">
