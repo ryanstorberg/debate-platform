@@ -35,7 +35,6 @@ textarea {
 }
 
 nav {
-  background-color: green;
   width: 100%;
   position: fixed;
   font-size: 22px;
@@ -45,8 +44,9 @@ nav {
 .container {
   margin: 0 auto;
   margin-top: 100px;
+  padding: 15px;
+  border-radius: 10px;
   width: 900px;
-  height: 100%;
   background-color: white;
   padding: 30px;
 }
@@ -64,6 +64,17 @@ nav {
   background-color: orange;
 }
 
+.debate_title {
+  margin: 0;
+}
+
+  .debate_title a {
+    text-decoration: none;
+  }
+
+.debate_body {
+  margin: 0;
+}
 
 .comment {
   float: left;
@@ -103,8 +114,3 @@ nav {
   color: #20272D;
   border: 1px solid #20272D;
 }
-
-
-
-
-
