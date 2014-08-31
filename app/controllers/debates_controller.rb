@@ -2,7 +2,7 @@ class DebatesController < ApplicationController
 
   def index
     @recent_debates = Debate.order(created_at: :desc).limit(10)
-    @popular_debates = Debate.order(created_at: :desc).limit(10) #Needs to retreivve and sort based on number of comments
+    @popular_debates = Debate.all.limit(10) #Needs to retrieve and sort based on number of comments
   end
 
   def show

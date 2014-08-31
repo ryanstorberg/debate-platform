@@ -16,7 +16,7 @@
           <p><%= debate.body %></p>
           
           <p>
-            <%= debate.topic %> | 
+            <b><%= debate.topic.name %></b> | 
             <%= debate.votes_for %> For | 
             <%= debate.votes_against %> Against | 
             <%= debate.comments.length %> Comments
@@ -35,7 +35,7 @@
           <p><%= debate.body %></p>
           
           <p>
-            <%= debate.topic %> | 
+            <b><%= debate.topic.name %></b> | 
             <%= debate.votes_for %> For | 
             <%= debate.votes_against %> Against | 
             <%= debate.comments.length %> Comments
