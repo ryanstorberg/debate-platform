@@ -1,6 +1,6 @@
 <center>
   <h1><%= @debate.title %></h1>
-  <h4><i><%= @debate.topic.name %></i></h4>
+  <h4><i><%= @debate.topic.name %></i> | by <%= link_to @debate.author.username, user_path(@debate.author) %>
 </center>
 
 <p align="justify"><%= @debate.body %></p>
@@ -8,7 +8,7 @@
 <div class="comment">
   <center>
     <h2>Agree</h2>
-    <%= @debate.votes_for %> total votes
+    <h4><i><%= @debate.votes_for %> total votes</i></h4>
   </center>
 
   <%= render partial: 'comment_form',
@@ -39,7 +39,7 @@
 <div class="comment">
   <center>
     <h2>Disagree</h2>
-    <%= @debate.votes_against %> total votes
+    <h4><i><%= @debate.votes_against %> total votes</i></h4>
   </center>
 
   <%= render partial: 'comment_form',

@@ -5,12 +5,15 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.debate_id = params[:debate_id]
+    current_user = User.find(session[:user_id]) if session[:user_id]
 
-    if @comment.save
+    if @comment.save && current_user
+      @comment.debate_id = params[:debate_id]
       redirect_to debate_path(@comment.debate), notice: 'Question was successfully created.'
     else
-      render :new
+      @debate = Debate.find(params[:debate_id])
+      flash[:notice] = "Must be logged in to write a comment"
+      redirect_to debate_path(@debate)
     end
   end
 
