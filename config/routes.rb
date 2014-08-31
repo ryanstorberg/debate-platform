@@ -4,12 +4,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy', as: :logout
 
-  resources :users, only: [:index, :new, :create, :edit, :destroy]
+  resources :users
   resources :debates do
     resources :comments do
       resources :votes
     end
   end
-
-  root 'debates#index'
+  root 'sessions#new'
 end
