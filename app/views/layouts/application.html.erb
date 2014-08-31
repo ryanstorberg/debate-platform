@@ -9,15 +9,16 @@
 <body>
   <nav>
     <% if current_user %>
-    <%= link_to 'Home', debates_path %> |
-    <%= link_to 'Create Debate', new_debate_path %> |
-    Welcome, <%= link_to current_user.username, user_path(current_user) %>! |
-    <%= link_to 'Logout', logout_path %><br>
-  <% else %>
-    <%= link_to 'Home', debates_path %> |
-    <%= link_to 'Login', login_path %> |
-    <%= link_to 'Sign up', new_user_path %><br>
-  <% end %>
+      <%= link_to 'Home', debates_path %> |
+      <%= link_to 'Create Debate', new_debate_path %> |
+      Welcome, <%= link_to current_user.username, user_path(current_user) %>! |
+      <%= link_to 'Logout', logout_path %><br>
+    <% else %>
+      <%= link_to 'Home', debates_path %> |
+      <%= link_to 'Login', login_path %> |
+      <%= link_to 'Sign up', new_user_path %><br>
+    <% end %>
+  </nav>
   
   <div class="container">
     <%= yield %>
