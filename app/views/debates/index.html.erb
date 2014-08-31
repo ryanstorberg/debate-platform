@@ -9,7 +9,7 @@
 
   <div id="recent_list">
     <h2>Recent Debates</h2>
-    <% @debates.each do |debate| %>
+    <% @recent_debates.each do |debate| %>
       <div class="single_debate">
         <%= link_to debate do %>
           <h4><%= debate.title %></h4>
@@ -28,7 +28,7 @@
 
   <div id="popular_list">
     <h2>Popular Debates</h2>
-    <% @debates.each do |debate| %>
+    <% @popular_debates.each do |debate| %>
       <div class="single_debate">
         <%= link_to debate do %>
           <h4><%= debate.title %></h4>
