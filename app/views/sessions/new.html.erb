@@ -1,7 +1,7 @@
 <%= form_for :session do |f| %>
-  <h1>Login</h1>
+  <%= f.text_field :username, placeholder: "Username" %><br>
+  <%= f.password_field :password, placeholder: "Password" %><br>
+  <%= f.submit "Signin"%>
+<% end %>
 
-  <%= f.text_field :username, placeholder: "User name" %><br>
-  <%= f.password_field :password, placeholder: "Password"%><br>
-  <%= f.submit "Login"%>
-<% end%>
+<p>Not yet a member? <%= link_to "Signup!", new_user_path %></p>

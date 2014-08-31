@@ -1,0 +1,6 @@
+<%= @user.username %>
+<ul>
+<% @user.authored_debates.each do |debate| %>
+  <li><%= link_to debate.title, debate_path(debate) %></li>
+<% end %>
+</ul>
