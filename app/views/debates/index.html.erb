@@ -1,13 +1,44 @@
-<% @debates.each do |debate| %>
-  <%= link_to debate do %>
-    <div class="debate-container">
-      <h2><%= debate.title %></h2>
-      <p><%= debate.body %></p>
-      <p><b><%= debate.topic %></b></p>
+<!-- <div id="topic_list">
+  <h4>Topics</h4>
+  <ul>
+    
+  </ul>
+</div> -->
 
-      Votes for: <%= debate.votes_for %><br>
-      Votes against: <%= debate.votes_against %><br>
-      Comments: <%= debate.comments.length %>
-    </div>
-  <% end %>
-<% end %>
+<div id="debate_container">
+
+  <div id="recent_list">
+    <h4>Recent Debates</h4>
+    <% @debates.each do |debate| %>
+      <div class="single_debate">
+        <%= link_to debate do %>
+          <h5><%= debate.title %></h5>
+          <p><%= debate.body %></p>
+          
+          <%= debate.topic %> | 
+          <%= debate.votes_for %> For | 
+          <%= debate.votes_against %> Against | 
+          <%= debate.comments.length %> Comments
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="popular_list">
+    <h4>Popular Debates</h4>
+    <% @debates.each do |debate| %>
+      <div class="single_debate">
+        <%= link_to debate do %>
+          <h5><%= debate.title %></h5>
+          <p><%= debate.body %></p>
+          
+          <%= debate.topic %> | 
+          <%= debate.votes_for %> For | 
+          <%= debate.votes_against %> Against | 
+          <%= debate.comments.length %> Comments
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+</div>
