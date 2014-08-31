@@ -18,8 +18,11 @@ body {
   background-color: #F6F6EF;
 }
 
+a {
+  text-decoration: none;
+}
+
 textarea {
-/*  margin: 0 auto;*/
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -27,10 +30,9 @@ textarea {
   height: 150px;
   resize: none;
   border: 1px solid #20272D;
-  padding: 5px;
+  padding: 10px;
   font-size: 14px;
 }
-
 
 nav {
   background-color: green;
@@ -46,12 +48,29 @@ nav {
   width: 900px;
   height: 100%;
   background-color: white;
+  padding: 30px;
 }
+
+.debate-container {
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 100%;
+  padding: 20px 20px 20px 20px;
+  background-color: #F6F6EF;
+  -webkit-box-shadow: 0 0 11px 1px #111;
+}
+
+.debate-container:hover {
+  background-color: orange;
+}
+
 
 .comment {
   float: left;
   margin: 5px;
+  padding: 10px;
   width: 400px;
+  background-color: red;
 }
 
 .btn {

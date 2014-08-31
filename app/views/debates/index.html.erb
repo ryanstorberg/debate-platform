@@ -1,6 +1,13 @@
 <% @debates.each do |debate| %>
-  <h2><%= link_to debate.title, debate %></h2>
-  <p><%= debate.body %></p>
-  <p><b><%= debate.topic %></b></p>
-  <br>
+  <%= link_to debate do %>
+    <div class="debate-container">
+      <h2><%= debate.title %></h2>
+      <p><%= debate.body %></p>
+      <p><b><%= debate.topic %></b></p>
+
+      Votes for: <%= debate.votes_for %><br>
+      Votes against: <%= debate.votes_against %><br>
+      Comments: <%= debate.comments.length %>
+    </div>
+  <% end %>
 <% end %>
