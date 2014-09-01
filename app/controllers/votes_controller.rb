@@ -8,7 +8,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:vote][:user_id])
+    # @user = User.find(params[:vote][:user_id])
     @debate = Debate.find(params[:debate_id])
     @comment = Comment.find(params[:comment_id])
     current_user = User.find(session[:user_id]) if session[:user_id]
@@ -49,7 +49,7 @@ class VotesController < ApplicationController
   private
 
   # def vote_params
-  #   params.require(:vote).permit(:has_voted?, :user_id, :comment_id)
+  #   params.require(:vote).permit(:debate_id, :comment_id, )
   # end
 
 end

@@ -1,5 +1,6 @@
 <%= form_for [@debate, Comment.new] do |f| %>
-  <%= f.hidden_field :agree?, value: false %>
+  <%= f.hidden_field :agree, value: agree %>
+  <%= f.hidden_field :debate_id, value: @debate.id %>
   <%= f.text_area :content, placeholder: placeholder %><br>
-  <%= f.submit button_text, class: button_class  %>
+  <%= f.submit button_text, { class: button_class } %>
 <% end %>

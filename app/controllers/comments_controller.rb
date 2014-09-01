@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     current_user = User.find(session[:user_id]) if session[:user_id]
 
     if @comment.save && current_user
-      @comment.debate_id = params[:debate_id]
+      @comment.update(user_id: session[:user_id])
       redirect_to debate_path(@comment.debate), notice: 'Question was successfully created.'
     else
       @debate = Debate.find(params[:debate_id])
@@ -19,6 +19,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:content, :agree)
+    params.require(:comment).permit(:content, :agree, :debate_id)
   end
 end
