@@ -14,6 +14,7 @@
   <%= render partial: 'comment_form',
       locals: {
         debate: @debate,
+        agree: true,
         placeholder: "Why do you agree with this article?",
         button_text: "Agree",
         button_class: "btn btn-agree"
@@ -23,6 +24,10 @@
   <% @agree_comments.each do |comment| %>
     <div class="single_debate">
       <p><%= comment.content %></p>
+      <p>
+        by <%= link_to comment.user.username, user_path(comment.user) %>
+      </p>
+
 
       <%= render partial: 'vote_form',
         locals: {
@@ -45,6 +50,7 @@
   <%= render partial: 'comment_form',
       locals: {
         debate: @debate,
+        agree: false,
         placeholder: "Why do you disagree with this article?",
         button_text: "Disagree",
         button_class: "btn btn-disagree"
@@ -54,6 +60,9 @@
   <% @disagree_comments.each do |comment| %>
     <div class="single_debate">
       <p><%= comment.content %></p>
+      <p>
+        by <%= link_to comment.user.username, user_path(comment.user) %>
+      </p>
 
       <%= render partial: 'vote_form',
         locals: {
