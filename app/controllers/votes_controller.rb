@@ -28,16 +28,6 @@ class VotesController < ApplicationController
 
       total_votes = @debate.total_votes + 1
       @debate.update(total_votes: total_votes)
-      puts
-      puts
-      puts
-      puts
-      puts
-      puts
-      puts
-      puts
-
-      p @vote.agree
 
       if @vote.agree
         votes_for = @debate.votes_for + 1
