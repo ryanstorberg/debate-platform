@@ -8,10 +8,10 @@ class VotesController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[:vote][:user_id])
     @debate = Debate.find(params[:debate_id])
     @comment = Comment.find(params[:comment_id])
     current_user = User.find(session[:user_id]) if session[:user_id]
+
     comment_votes = Vote.where(comment: @comment)
     has_voted = comment_votes.find_by(user: session[:user_id])
 
