@@ -1,6 +1,28 @@
-<%= @user.username %>
-<ul>
-<% @user.authored_debates.each do |debate| %>
-  <li><%= link_to debate.title, debate_path(debate) %></li>
-<% end %>
-</ul>
+<div class="user_profile">
+	<h1 class="user_name"><%= @user.username %></h1>
+
+	<div class="user_stats">
+		<h3>User Stats</h3>
+		<p><%= @user.authored_debates.count %> debates authored</p>
+		<p><%= @comment_count %> comments made</p>
+		<p><%= @vote_count %> votes received</p>
+	</div>
+
+	<div class="user_comments">
+		<h3>Top 3 Comments</h3>
+		<% @top_comments.each do |comment| %>
+			<p><%= link_to comment.content, debate_path(comment.debate) %></p>
+			<p><%= comment.vote_count %> votes</p>
+		<% end %>
+	</div>
+
+	<div class="user_debates">
+		<h3>Authored Debates</h3>
+		<% @user.authored_debates.each do |debate| %>
+		  <%= link_to debate do %>
+		  	<h4><%= debate.title %></h4>
+			<p><%= debate.body %></p>
+		  <% end %>
+		<% end %>
+	</div>
+</div>
