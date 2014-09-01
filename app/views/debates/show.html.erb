@@ -24,10 +24,6 @@
   <% @agree_comments.each do |comment| %>
     <div class="single_debate">
       <p><%= comment.content %></p>
-      <p>
-        by <%= link_to comment.user.username, user_path(comment.user) %>
-      </p>
-
 
       <%= render partial: 'vote_form',
         locals: {
@@ -60,9 +56,6 @@
   <% @disagree_comments.each do |comment| %>
     <div class="single_debate">
       <p><%= comment.content %></p>
-      <p>
-        by <%= link_to comment.user.username, user_path(comment.user) %>
-      </p>
 
       <%= render partial: 'vote_form',
         locals: {
