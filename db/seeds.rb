@@ -36,7 +36,7 @@ end
 
 200.times do
   Comment.create(
-    user_id: rand(1..10),
+    user_id: rand(1..9),
     debate_id: rand(1..20),
     content: Faker::Lorem.paragraph,
     agree: [true, false].sample
@@ -44,12 +44,12 @@ end
   )
 end
 
-500.times do
-  Vote.create(
-    has_voted?: true,
-    agree: [true, false].sample,
-    user_id: rand(1..10),
-    comment_id: rand(1..200)
-  )
- end
+# 500.times do
+#   Vote.create(
+#     has_voted?: true,
+#     agree: [true, false].sample,
+#     user_id: rand(1..10),
+#     comment_id: rand(1..200)
+#   )
+#  end
 

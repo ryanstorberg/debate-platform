@@ -8,10 +8,10 @@ class VotesController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[:vote][:user_id])
     @debate = Debate.find(params[:debate_id])
     @comment = Comment.find(params[:comment_id])
     current_user = User.find(session[:user_id]) if session[:user_id]
+
     comment_votes = Vote.where(comment: @comment)
     has_voted = comment_votes.find_by(user: session[:user_id])
 
@@ -28,6 +28,16 @@ class VotesController < ApplicationController
 
       total_votes = @debate.total_votes + 1
       @debate.update(total_votes: total_votes)
+      puts
+      puts
+      puts
+      puts
+      puts
+      puts
+      puts
+      puts
+
+      p @vote.agree
 
       if @vote.agree
         votes_for = @debate.votes_for + 1
