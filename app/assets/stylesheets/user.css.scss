@@ -1,3 +1,49 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user_profile {
+	color: black;
+	background-color: #eee;
+	padding: 10px;
+}
+
+.user_name {
+	margin-left: 25px;
+}
+
+.user_stats {
+	margin-left: 15px;
+	width: 175px;
+	padding: 10px 0 10px 10px;
+	display: inline-block;
+	float: left;
+	border-right: 1px solid;
+}
+
+.user_comments {
+	width: 500px;
+	padding: 10px;
+	display: inline-block;
+	margin-left: 35px;
+}
+
+	.user_comments a {
+		color: black;
+	}
+
+	.user_comments a:hover {
+		color: #bbb;
+	}
+
+.user_debates {
+	padding: 10px;
+}
+
+	.user_debates a {
+		color: black;
+	}
+
+	.user_debates a:hover {
+		color: #bbb;
+	}
